@@ -209,7 +209,7 @@ describe('Tarantool Connection tests', function(){
 				.catch(done);
 		});
 		it('select with space name and index name', function(done){
-			conn.select('test', 'primary', 0, 0, conn.IteratorsType.all, [999])
+			conn.select('test', 'primary', 0, 0, 'all', [999])
 				.then(function(){
 					done();
 				})
@@ -242,6 +242,26 @@ describe('Tarantool Connection tests', function(){
 					done();
 				})
 				.catch(done);
+		});
+		it('evaluate expression', function(done){
+			conn.eval('return 2+2')
+				.then(function(res){
+					assert.equal(res, 4)
+					done();
+				})
+				.catch(function(e){
+					done(e);
+				});
+		});
+		it('evaluate expression with args', function(done){
+			conn.eval('return func_sum(...)', 11, 22)
+				.then(function(res){
+					assert.equal(res, 33)
+					done();
+				})
+				.catch(function(e){
+					done(e);
+				});
 		});
 	});
 	describe('upsert', function(){

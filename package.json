@@ -1,6 +1,6 @@
 {
   "name": "tarantool-driver",
-  "version": "1.1.2",
+  "version": "2.0.5",
   "description": "Tarantool driver for 1.6",
   "main": "index.js",
   "scripts": {
@@ -25,13 +25,14 @@
   "homepage": "https://github.com/KlonD90/node-tarantool-driver",
   "dependencies": {
     "bitwise-xor": "0.0.0",
-    "msgpack-lite": "^0.1.15",
-    "msgpack5": "^3.3.0",
+    "msgpack-lite": "^0.1.20",
+    "object-assign": "^4.1.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
     "benchmark": "^2.1.0",
     "eslint": "^2.5.3",
-    "mocha": "^2.2.4"
+    "mocha": "^2.2.4",
+    "nanotimer": "^0.3.14"
   }
 }
